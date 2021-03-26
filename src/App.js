@@ -21,6 +21,10 @@ function App() {
         <Header></Header>
         <Home></Home>
       </Route> 
+      <Route path="/destination">
+        <Header></Header>
+        <Destination></Destination>
+      </Route> 
       <Route path="/rider/:name">
         <Header></Header>
         <Destination></Destination>
