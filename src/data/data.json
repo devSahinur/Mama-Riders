@@ -1,0 +1,17 @@
+[{
+    "id": 1,
+    "name": "BIKE",
+    "img": "https://raw.githubusercontent.com/SahinurINFO/social-buddy/main/src/components/Img/bike.png"
+  }, {
+    "id": 2,
+    "name": "CAR",
+    "img": "https://raw.githubusercontent.com/SahinurINFO/social-buddy/main/src/components/Img/car.png"
+  }, {
+    "id": 3,
+    "name": "BUS",
+    "img": "https://raw.githubusercontent.com/SahinurINFO/social-buddy/main/src/components/Img/bus.png"
+  }, {
+    "id": 4,
+    "name": "TRAIN",
+    "img": "https://raw.githubusercontent.com/SahinurINFO/social-buddy/main/src/components/Img/trien.png"
+  }]

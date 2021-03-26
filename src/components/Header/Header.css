@@ -1,0 +1,36 @@
+.nav{
+    width: 90%;
+    height: 70px;
+}
+.logo h1{
+    float: left;
+    padding: 10px;
+    margin: 0px;
+    font-size: 40px;
+
+}
+.menu{
+    float: right;
+    margin: auto;
+    padding-top: 15px;
+    padding-left: 166px;
+}
+.nav li{
+    display: inline;
+    margin-left: 50px;
+    
+}
+.nav li:last-child{
+    background-color: #FF6E40;
+    padding: 10px 32px 10px 32px;
+    border-radius: 5px;
+}
+  
+.nav a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.login-btn{
+    color: white !important;
+}
