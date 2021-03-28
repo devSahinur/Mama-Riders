@@ -6,13 +6,12 @@ import './SingleData.css';
 const SingleData = (props) => {
     const {img, name, id} = props.rider;
     const history = useHistory();
-    console.log(history);
 
-    const handleSelect = (name) => {
-        history.push(`/rider/${name}`);
+    const handleSelect = (id) => {
+        history.push(`/rider/${id}`);
     }
     return (
-        <Button onClick={() => handleSelect(name)} className="card-item" >
+        <Button onClick={() => handleSelect(id)} className="card-item" >
             <Card.Img variant="top" src={img} />
             <h1>{name}</h1>
         </Button>

@@ -5,13 +5,13 @@ import './Home.css'
 
 
 const Home = () => {
-    const [riders, setRiders] = useState([])
-    console.log(riders);
+    const [riders, setRiders] = useState([]);
+    
     useEffect(() =>{
         setRiders(ridersData)
     },[])
     return (
-        <div className="single-container container">
+        <div className="single-container container ">
             {
                 riders.map( rider => <SingleData key={rider.id} rider={rider}></SingleData>)
             }

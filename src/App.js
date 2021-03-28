@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
@@ -16,30 +14,25 @@ import Contact from './components/Contact/Contact';
 function App() {
   return (
     <Router>
+      <Header></Header>
       <Switch>
       <Route path="/home">
-        <Header></Header>
         <Home></Home>
-      </Route> 
-      <Route path="/destination">
-        <Header></Header>
-        <Destination></Destination>
-      </Route> 
-      <Route path="/rider/:name">
-        <Header></Header>
+      </Route>
+      <Route path="/rider/:id">
         <Destination></Destination>
       </Route> 
       <Route path="/blog">
-        <Header></Header>
         <Blog></Blog>
       </Route> 
       <Route path="/contact">
-        <Header></Header>
         <Contact></Contact>
       </Route> 
       <Route path="/login">
-        <Header></Header>
         <Login></Login>
+      </Route>
+      <Route path="/">
+        <Home></Home>
       </Route>
       
       </Switch>

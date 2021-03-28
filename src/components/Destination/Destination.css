@@ -1,0 +1,24 @@
+.left-pick-from{
+    background-color: #EFEFEF;
+    width:370px;
+    height: 570px;
+    border-radius:10px;
+}
+.pick-data{
+    width:340px;
+    height: 88px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.pick-data img{
+    width: 81px;
+    height: 68px;
+    padding: 9px;
+}
+.pick-data p{
+    padding: 20px;
+}
