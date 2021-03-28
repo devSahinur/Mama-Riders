@@ -1,17 +1,17 @@
 .left-pick-from{
     background-color: #EFEFEF;
     width:370px;
-    height: 570px;
+    height: 700px;
     border-radius:10px;
 }
 .pick-data{
     width:340px;
     height: 88px;
     border-radius: 10px;
+    padding: 10px;
     overflow: hidden;
     display: flex;
     background-color: white;
-    padding: 10px;
     margin-bottom: 10px;
 }
 .pick-data img{
@@ -21,4 +21,29 @@
 }
 .pick-data p{
     padding: 20px;
+}
+.input-from{
+    padding:20px;
+    background-color: #EFEFEF;
+    width:370px;
+    height: 250px;
+    border-radius:10px;
+}
+.input-from input{
+    padding: 10px;
+    border-radius:5px;
+    border:none;
+    width: 300px;
+}
+.input-from input:last-child{
+    background-color:#FF6E40;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.pick-target{
+    width:340px;
+    height:140px;
+    background-color:#FF6E40;
+    border-radius: 10px;
+    padding: 10px;
 }

@@ -10,16 +10,14 @@ const Destination = () => {
         from: '',
         to: ''
     });
-    console.log(pick);
     const [rider, setRider] = useState([]);
     
     const result = rider && rider.filter(r => r.id == id);
 
-    console.log(result[0]);
-
     useEffect(() => {
         setRider(ridersData)
     },[]);
+
     const handleBlur = (e) => {
         e.preventDefault();
         let isFieldValid;
@@ -36,30 +34,18 @@ const Destination = () => {
             newUserInfo[e.target.name] =e.target.value;
             setPick(newUserInfo);
           }
-
-    }
+    };
     const handleSearch = (e) => {
       e.preventDefault();
         
-    }
+    };
     return (
         <div>
-            <div className="left-pick-from">
-                <form action="" onSubmit={handleSearch} >
-                <p>Pick From</p>
-                <input type="text" name="from" onBlur={handleBlur} placeholder="From"/>
-                <p>Pick To</p>
-                <input type="text" name="to" onBlur={handleBlur} placeholder="To"/>
-                <br/>
-                <input onClick={() => setNewUser(!newUser)} type="submit" value="Search"/>
-                </form>
-                <h1>{pick.from}</h1>
-                <h1>{pick.to}</h1>
-                <div className="pick-data">
-                    <img src={result[0]?.img} alt=""/>
-                    <p>{result[0]?.name}</p>
-                    <p>4</p>
-                    <p>$67</p>
+            {newUser ? <div className="left-pick-from">
+                
+                <div className="pick-target">
+                    <h1>{pick.from}</h1>
+                    <h1>{pick.to}</h1>
                 </div>
                 <div className="pick-data">
                     <img src={result[0]?.img} alt=""/>
@@ -73,7 +59,23 @@ const Destination = () => {
                     <p>4</p>
                     <p>$67</p>
                 </div>
-            </div>
+                <div className="pick-data">
+                    <img src={result[0]?.img} alt=""/>
+                    <p>{result[0]?.name}</p>
+                    <p>4</p>
+                    <p>$67</p>
+                </div>
+            </div> : 
+            <form className="input-from" action="" onSubmit={handleSearch} >
+            <p>Pick From</p>
+            <input type="text" name="from" onBlur={handleBlur} placeholder="From"/>
+            <p>Pick To</p>
+            <input type="text" name="to" onBlur={handleBlur} placeholder="To"/>
+            <br/>
+            <input onClick={() => setNewUser(!newUser)} type="submit" value="Search"/>
+        </form>
+            }
+            
         </div>
     );
 };
