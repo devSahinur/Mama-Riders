@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import { useState } from 'react';
 import './Login.css';
+import { UserContext } from '../../App';
+import { useHistory, useLocation } from 'react-router';
 
 
 //this part firebase initializeApp
@@ -14,7 +16,6 @@ if(firebase.apps.length === 0){
 // this part State and storageData
 const Login = () => {
     const [newUser, setNewUser] = useState(false);
-    // console.log(newUser);
     const [user, setUser] = useState({
         isSignedIn: false,
         name: '',
@@ -24,6 +25,11 @@ const Login = () => {
         error: '',
         success: ''
       });
+
+      const [loggedInUser, setLoggedInUser] =useContext(UserContext);
+      const history = useHistory();
+      const location = useLocation();
+      let { from } = location.state || { from: { pathname: "/" } };
 
       console.log(user);
 
@@ -107,8 +113,9 @@ const Login = () => {
             newUserInfo.error = '';
             newUserInfo.success = true;
             setUser(newUserInfo);
+            setLoggedInUser(newUserInfo);
+            history.replace(from);
             console.log('sign in user info');
-            console.log(res);
         })
         .catch((error) => {
           const newUserInfo = {...user};
@@ -160,7 +167,7 @@ const Login = () => {
             </form>
 
             {newUser ? <p>Already have an account? <button onClick={() => setNewUser(!newUser)}>Login</button></p> : <p>Don't have an account? <button onClick={() => setNewUser(!newUser)}>Create an account</button></p>}
-            
+            {user.success && <p style={{color: 'green'}}>{user.error}User { newUser ? 'created' : 'Logged In'} successfully</p>}
             <p style={{color: 'red'}}>{user.error}</p>
             {user.success && <p style={{color: 'green'}}>User Created successfully</p>}
             <button onClick={handleGoogleSignIn}>Continue with Google</button>
