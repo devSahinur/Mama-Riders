@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import PeopleIcon from '@material-ui/icons/People';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 import ridersData from '../../data/data.json';
 import './Destination.css'
 
@@ -39,6 +41,13 @@ const Destination = () => {
       e.preventDefault();
         
     };
+
+    // google map styles
+    const mapStyles = {
+        width: '100%',
+        height: '100%',
+      };
+      
     return (
         <div>
             {newUser ? <div className="left-pick-from">
@@ -50,32 +59,42 @@ const Destination = () => {
                 <div className="pick-data">
                     <img src={result[0]?.img} alt=""/>
                     <p>{result[0]?.name}</p>
-                    <p>4</p>
+                    <p><PeopleIcon/> 4</p>
                     <p>$67</p>
                 </div>
                 <div className="pick-data">
                     <img src={result[0]?.img} alt=""/>
                     <p>{result[0]?.name}</p>
-                    <p>4</p>
+                    <p><PeopleIcon/>  4</p>
                     <p>$67</p>
                 </div>
                 <div className="pick-data">
                     <img src={result[0]?.img} alt=""/>
                     <p>{result[0]?.name}</p>
-                    <p>4</p>
+                    <p><PeopleIcon/>  4</p>
                     <p>$67</p>
                 </div>
             </div> : 
-            <form className="input-from" action="" onSubmit={handleSearch} >
+
+            <form className="left-pick-from input-from" action="" onSubmit={handleSearch} >
             <p>Pick From</p>
-            <input type="text" name="from" onBlur={handleBlur} placeholder="From"/>
+            <input type="text" name="from" onBlur={handleBlur} required placeholder="From"/>
             <p>Pick To</p>
-            <input type="text" name="to" onBlur={handleBlur} placeholder="To"/>
+            <input type="text" name="to" onBlur={handleBlur} required placeholder="To"/>
             <br/>
-            <input onClick={() => setNewUser(!newUser)} type="submit" value="Search"/>
+            <input onClick={() => setNewUser(!newUser)} type="submit" required value="Search"/>
         </form>
-            }
-            
+
+        }
+
+        {/* google map */}
+        {/* <Map
+          google={this.props.google}
+          zoom={8}
+          style={mapStyles}
+          initialCenter={{ lat: 47.444, lng: -122.176}}
+        /> */}
+
         </div>
     );
 };

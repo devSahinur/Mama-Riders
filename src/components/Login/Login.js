@@ -150,7 +150,8 @@ const Login = () => {
 
     return (
         <div className='login'>
-            <form onSubmit={handleSubmit}>
+            <form className="login-form" onSubmit={handleSubmit}>
+            {newUser ? <h1>Create an account</h1> : <h1>Login</h1>}
             {newUser && <input name="name" type="text" onBlur={handleBlur} required placeholder="Name"/>}
             <br/>
             <br/>
@@ -166,13 +167,12 @@ const Login = () => {
             <input type="submit" value={newUser ? 'Sign Up' : 'Sign In'}/>
             </form>
 
-            {newUser ? <p>Already have an account? <button onClick={() => setNewUser(!newUser)}>Login</button></p> : <p>Don't have an account? <button onClick={() => setNewUser(!newUser)}>Create an account</button></p>}
+            {newUser ? <p>Already have an account? <button className="from-create-btn" onClick={() => setNewUser(!newUser)}>Login</button></p> : <p>Don't have an account? <button className="from-create-btn" onClick={() => setNewUser(!newUser)}>Create an account</button></p>}
             <br/>
             {user.success && <p style={{color: 'green'}}>{user.error}User { newUser ? 'created' : 'Logged In'} successfully</p>}
             <p style={{color: 'red'}}>{user.error}</p>
-            <button onClick={handleGoogleSignIn}>Continue with Google</button>
+            <button className="google-login-btn" onClick={handleGoogleSignIn}>Continue with Google</button>
             <br/>
-            <button>Continue with Facebook</button>
         </div>
     );
 };
