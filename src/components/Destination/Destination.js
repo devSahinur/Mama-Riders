@@ -43,13 +43,15 @@ const Destination = () => {
     };
 
     // google map styles
-    const mapStyles = {
-        width: '100%',
-        height: '100%',
-      };
+    const iframeStyle ={
+        width: '850px',
+        height: '600px',
+        border: 'none',
+        padding: '50px'
+    }
       
     return (
-        <div>
+        <div className="container">
             {newUser ? <div className="left-pick-from">
                 
                 <div className="pick-target">
@@ -86,15 +88,9 @@ const Destination = () => {
         </form>
 
         }
-
-        {/* google map */}
-        {/* <Map
-          google={this.props.google}
-          zoom={8}
-          style={mapStyles}
-          initialCenter={{ lat: 47.444, lng: -122.176}}
-        /> */}
-
+            <div>
+                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57494.63222574654!2d88.9751637338348!3d25.756868667760518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e349375b2cb363%3A0xed9c71a89e858559!2sTaraganj%20Upazila!5e0!3m2!1sen!2sbd!4v1617015607661!5m2!1sen!2sbd" style={iframeStyle} allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     );
 };
