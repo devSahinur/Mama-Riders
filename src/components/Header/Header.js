@@ -1,9 +1,12 @@
 import { Container } from '@material-ui/core';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import './Header.css';
 
 const Header = () => {
+    const [loggedInUser, setLoggedInUser] =useContext(UserContext)
+    console.log(loggedInUser);
     return (
         <Container>
             <nav className="nav container">
@@ -25,7 +28,7 @@ const Header = () => {
                             <Link to="/contact">Contact</Link>
                         </li>
                         <li>
-                            <Link className="login-btn" to="/login">Login</Link>
+                            {loggedInUser.isSignedIn ? <Link className="login-btn">{loggedInUser.email}</Link>  : <Link className="login-btn" to="/login">Login</Link>}
                         </li>
                     </ul>
                 </div>

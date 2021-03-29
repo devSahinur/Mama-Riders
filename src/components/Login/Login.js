@@ -46,6 +46,8 @@ const Login = () => {
             photo: photoURL
         }
         setUser(signedInUser);
+        setLoggedInUser(signedInUser);
+        history.replace(from);
       })
       .catch((error) => {
         console.log(error);
@@ -93,6 +95,7 @@ const Login = () => {
             const newUserInfo = {...user};
             newUserInfo.error = '';
             newUserInfo.success = true;
+            newUserInfo.isSignedIn = true;
             setUser(newUserInfo);
             updateUserName(user.name);
 
@@ -112,6 +115,7 @@ const Login = () => {
           const newUserInfo = {...user};
             newUserInfo.error = '';
             newUserInfo.success = true;
+            newUserInfo.isSignedIn = true;
             setUser(newUserInfo);
             setLoggedInUser(newUserInfo);
             history.replace(from);
@@ -146,10 +150,6 @@ const Login = () => {
 
     return (
         <div className='login'>
-            <h5>{user.email}</h5>
-            <h5>{user.password}</h5>
-            <h2>{user.name}</h2>
-
             <form onSubmit={handleSubmit}>
             {newUser && <input name="name" type="text" onBlur={handleBlur} required placeholder="Name"/>}
             <br/>
@@ -167,13 +167,12 @@ const Login = () => {
             </form>
 
             {newUser ? <p>Already have an account? <button onClick={() => setNewUser(!newUser)}>Login</button></p> : <p>Don't have an account? <button onClick={() => setNewUser(!newUser)}>Create an account</button></p>}
+            <br/>
             {user.success && <p style={{color: 'green'}}>{user.error}User { newUser ? 'created' : 'Logged In'} successfully</p>}
             <p style={{color: 'red'}}>{user.error}</p>
-            {user.success && <p style={{color: 'green'}}>User Created successfully</p>}
             <button onClick={handleGoogleSignIn}>Continue with Google</button>
             <br/>
             <button>Continue with Facebook</button>
-            <h1>{user.name}</h1>
         </div>
     );
 };
